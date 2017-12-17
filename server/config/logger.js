@@ -2,7 +2,6 @@
 
 /** @module logger */
 
-const config = require('./config');
 const bunyan = require('bunyan');
 const errors = require('restify-errors');
 

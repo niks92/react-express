@@ -1,5 +1,13 @@
 const Provider = require('../models/provider');
 
+/**
+ * @function getProviders - List of providers depending on query params
+ *
+ * @param req Object
+ * @param res Object
+ * @param next Object
+ */
+
 function getProviders(req, res, next){
 	let {max_discharges, min_discharges, max_average_covered_charges, state,
 		min_average_covered_charges, min_average_medicare_payments, max_average_medicare_payments} = req.query;

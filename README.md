@@ -32,8 +32,16 @@ The NodeJS web application is deployed to heroku:
 
 The database is deployed to MongoLab. [mongodb://ds159926.mlab.com:59926/bain](mongodb://ds159926.mlab.com:59926/bain)
 
+## 5. Test Cases
 
-## 5. API Doucmentation
+Using Mocha, Chai you can run the test cases using the following command:
+
+```bash
+$ npm test
+```
+
+
+## 6. API Doucmentation
 
 # Provider Resources
 
