@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`);
+mongoose.connect(process.env.MONGO_URI);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
