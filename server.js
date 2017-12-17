@@ -9,7 +9,7 @@ const errorHandler = require('./server/responseHandlers/errorHandler');
 const router = require('./server/router'); 
 const bodyParser = require('body-parser');
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 
 console.log(process.env.NODE_ENV)
 
