@@ -4,7 +4,6 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
-const Patient = require('./server/models/patient');
 const errorHandler = require('./server/responseHandlers/errorHandler');
 const router = require('./server/router'); 
 const bodyParser = require('body-parser');

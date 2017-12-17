@@ -1,4 +1,4 @@
-const Patient = require('../models/patient');
+const Provider = require('../models/provider');
 
 function getProviders(req, res, next){
 	let {max_discharges, min_discharges, max_average_covered_charges, state,
@@ -30,7 +30,7 @@ function getProviders(req, res, next){
 			searchQuery['Average Medicare Payments']['$gte'] = parseInt(min_average_medicare_payments)
 	}
 
-	Patient.find(searchQuery)
+	Provider.find(searchQuery)
 	.limit(20)
 	.lean()
 	.exec((err, response) => {
