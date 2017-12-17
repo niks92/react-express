@@ -1,15 +1,12 @@
-# React + Express Fullstack Example Project Using Stormpath
+# React + Express Fullstack Project
 
 This repository is an example fullstack web application using React on the
-front-end and Express.js as your back-end server. It uses [express-stormpath][]
-and [stormpath-sdk-react][] to authenticate users, protect your server API,
-and render default login and registration screens in your React application.
+front-end and Express.js as your back-end server. It uses passport bearer authentication to authenticate users, protect your server API, and render default login and registration screens in your React application.
 
 ## 1. Getting Started
 
 To run this example project on your local computer, you will need to have
-[Node.js][] installed and a [Stormpath][] tenant account.
-If you don't have a Stormpath account, sign up for a free account at [https://api.stormpath.com/register](https://api.stormpath.com/register).
+NodeJS installed. Make sure you using the LTS version of nodejs.
 
 ## 2. Installation
 
@@ -19,26 +16,7 @@ Clone this repository, then using a terminal, navigate to the directory and run 
 $ npm install
 ```
 
-## 3. Gather Stormpath Configuration
-
-You'll need to [Download an API Key Pair](https://docs.stormpath.com/rest/product-guide/latest/quickstart.html#create-an-api-key-pair) from the [Stormpath Admin Console][], and find the **Application Href** (also called **REST URL**) of the Application that you will use for your project. The default application is called "My Application" and you can use that to get started.
-
-## 4. Provide Configuration To Your Application
-
-Provide the **API Key ID**, **API Key Secret**, and **Application Href** to your environment:
-
-**Place them in a file named `stormpath.yml`, in the directory where you run the dev server:**
-
-```yaml
-client:
-  apiKey:
-    id: YOUR_API_KEY_ID
-    secret: YOUR_API_KEY_SECRET
-application:
-  href: https://api.stormpath.com/v1/applications/XXXX
-```
-
-## 4. Usage
+## 3. Usage
 
 To start the server, run this command in the folder:
 
@@ -46,21 +24,117 @@ To start the server, run this command in the folder:
 $ npm start
 ```
 
-If the server is able to start with your configuration, you will see this in
-your terminal:
+## 4. Deployment
 
-```bash
-Stormpath Ready
-Application running at http://localhost:3000
+The NodeJS web application is deployed to heroku:
+
+[https://provider-data.herokuapp.com](https://provider-data.herokuapp.com)
+
+The database is deployed to MongoLab. [mongodb://ds159926.mlab.com:59926/bain](mongodb://ds159926.mlab.com:59926/bain)
+
+
+## 5. API Doucmentation
+
+# Provider Resources
+
+    GET /api/providers
+
+## Description
+Returns the list of providers
+
+***
+
+## Requires authentication
+* A valid authentication token must be provided in the request header.
+
+***
+
+## Query Parameters
+
+| Parameter                       | Description                               |
+|---------------------------------|-------------------------------------------|
+| `max_discharges`                | The maximum number of Total Discharges    |
+| `min_discharges`                | The minimum number of Total Discharges    |
+| `max_average_covered_charges`   | The maximum Average Covered Charges       | 
+| `min_average_covered_charges`   | The minimum Average Covered Charges       |
+| `max_average_medicare_payments` | The maximum Average Medicare Payment      |
+| `min_average_medicare_payments` | The minimum Average Medicare Payment      |
+| `state`                         | The exact state that the provider is from |
+***
+
+## Return format
+```json
+[
+	{
+		"Provider Name": "SOUTHEAST ALABAMA MEDICAL CENTER",
+		"Provider Street Address": "1108 ROSS CLARK CIRCLE",
+		"Provider City": "DOTHAN",
+		"Provider State": "AL",
+		"Provider Zip Code": "36301",	
+		"Hospital Referral Region Description": "AL - Dothan",
+		"Total Discharges": 91,
+		"Average Covered Charges": "$32,963.07", 
+		"Average Total Payments": 	"$5,777.24",
+		"Average Medicare Payments": "$4,763.73"
+	},
+	{
+		"Provider Name": "MARSHALL MEDICAL CENTER SOUTH",
+		"Provider Street Address": "2505 U S HIGHWAY 431 NORTH",
+		"Provider City": "BOAZ",
+		"Provider State": "AL",
+		"Provider Zip Code": "35957",	
+		"Hospital Referral Region Description": "AL - Birmingham",
+		"Total Discharges": 14,
+		"Average Covered Charges": "$32,963.07", 
+		"Average Total Payments": 	"$5,777.24",
+		"Average Medicare Payments": "$4,763.73"
+	}
+	
+]
+
+```
+## Login
+
+    POST /api/auth
+
+## Body Parameters
+
+| Parameter                       | Description                               |
+|---------------------------------|-------------------------------------------|
+| `email`                | Email of user    |
+| `password`                | Password of user (minimum 8 characters)    |
+***
+
+## Return format
+```json
+
+{   
+    "success": true,
+    "message": "Succesful",
+    "token" "auth-token"
+}
+
 ```
 
-The application should now be running in your browser at [http://localhost:3000](http://localhost:3000).
+## Register
 
-## API DOC
+    POST /api/register
 
-To generate the API Doc run these command on terminal:
+## Body Parameters
 
-```bash
-$ npm install -g apidoc
-$ apidoc -i ./ -e node_modules/ -o src/apidoc
+| Parameter                       | Description                               |
+|---------------------------------|-------------------------------------------|
+| `email`                | Email of user    |
+| `password`                | Password of user (minimum 8 characters)    |
+***
+
+## Return format
+```json
+
+{   
+    "success": true,
+    "message": "Succesful"
+}
+
 ```
+
