@@ -1,13 +1,17 @@
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const Patient = require('./server/models/patient');
-const config = require('./server/config/config');
 const errorHandler = require('./server/responseHandlers/errorHandler');
 const router = require('./server/router'); 
 const bodyParser = require('body-parser');
+
 const port = process.env.PORT || 3002;
+
+console.log(process.env.NODE_ENV)
 
 const app = express();
 
@@ -18,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/bain');
+mongoose.connect(`mongodb://${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,

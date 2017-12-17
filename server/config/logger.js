@@ -18,7 +18,7 @@ if (env === 'production') {
   const prettyStdOut = new PrettyStream();
   prettyStdOut.pipe(process.stdout);
   streams.push({
-    level: config[env]['log']['level'],
+    level: process.env.LOG_LEVEL,
     type: 'raw',
     stream: prettyStdOut
   });

@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config')[process.env.NODE_ENV || 'development'];
 
 function registerUser(req, res, next){
 	if (!req.body.email || !req.body.password) {
@@ -47,7 +46,7 @@ function authenticateUser(req, res, next){
 		  user.comparePassword(req.body.password, function(err, isMatch) {
 			if (isMatch && !err) {
 			  // Create token if the password matched and no error was thrown
-			  var token = jwt.sign(user.toJSON(), config.auth.secret, {
+			  var token = jwt.sign(user.toJSON(), process.env.AUTH_SECRET, {
 				expiresIn: "2 days"
 			  });
 			  res.json({
