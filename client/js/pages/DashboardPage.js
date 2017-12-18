@@ -2,7 +2,7 @@ import React from 'react';
 import ProviderAction from '../action/ProviderAction';
 import {Table, Column, Cell} from 'fixed-data-table';
 import { COUNTRIES } from '../tableConfig';
-import TextCellComponent  from './TextCellComponent';
+import CardComponent  from './CardComponent';
 
 
 export default class DashboardPage extends React.Component {
@@ -33,9 +33,9 @@ export default class DashboardPage extends React.Component {
 			queryParams["max_average_medicare_payments"] = this.refs.maxAverageMedicarePayments.value;
 		if(this.refs.isMinAverageMedicarePayment.checked)
 			queryParams["min_average_medicare_payments"] = this.refs.minAverageMedicarePayments.value;
-		if(this.refs.isStateChecked)
+		if(this.refs.isStateChecked.checked)
 			queryParams['state'] = this.refs.providerState.value;
-			
+
 		let query;
 		
 		if(!Object.keys(queryParams).length)
@@ -133,29 +133,14 @@ export default class DashboardPage extends React.Component {
 						</div>
 						<hr />
 						<div className="card-container">	
-						{this.state.providers.length == 0 ? <div className="text-center">No data to show. Please click <b>Apply</b> to have the results.</div> : null}
+						{	this.state.providers.length == 0 ? 
+								<div className="text-center">No data to show. Please click <b>Apply</b> to have the results.</div> : null
+						}
 							<div className="col-md-4">
 								
 								{
 									this.state.providers.map((provider) => {
-										return <div className="row">
-										
-												<div className="card-block">
-												<h4 className="card-title">Provider Name: {provider['Provider Name']}</h4>
-												<h6 className="card-title">Provider Id: {provider['Provider Id']}</h6>
-												<h6 className="card-title">DRG Definition: {provider['DRG Definition']}</h6>
-												<h6 className="card-title">Provider Name: {provider['Provider Id']}</h6>
-												<h6 className="card-title">Provider Street Address: {provider['Provider Street Address']}</h6>
-												<h6 className="card-title">Provider City: {provider['Provider City']}</h6>
-												<h6 className="card-title">Provider State: {provider['Provider State']}</h6>
-												<h6 className="card-title">Hospital Referral Region Description: {provider['Hospital Referral Region Description']}</h6>
-												<h6 className="card-title">Total Discharges: {provider['Total Discharges']}</h6>
-												<h6 className="card-title">Average Covered Charges: {provider['Average Covered Charges']}</h6>
-												<h6 className="card-title">Average Total Payments: {provider['Average Total Payments']}</h6>
-												<h6 className="card-title">Average Medicare Payments: {provider['Average Medicare Payments']}</h6>
-											</div>
-										</div>
-
+										return <CardComponent provider={provider} />
 									})
 							}
 							</div>
