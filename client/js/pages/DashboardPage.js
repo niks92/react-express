@@ -33,7 +33,9 @@ export default class DashboardPage extends React.Component {
 			queryParams["max_average_medicare_payments"] = this.refs.maxAverageMedicarePayments.value;
 		if(this.refs.isMinAverageMedicarePayment.checked)
 			queryParams["min_average_medicare_payments"] = this.refs.minAverageMedicarePayments.value;
-		
+		if(this.refs.isStateChecked)
+			queryParams['state'] = this.refs.providerState.value;
+			
 		let query;
 		
 		if(!Object.keys(queryParams).length)
@@ -115,6 +117,15 @@ export default class DashboardPage extends React.Component {
 										</label>
 										<input type="number" className="form-control searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
 									</div>
+
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+										State
+											<input type="checkbox" className="form-check-input" ref="isStateChecked" name="minAverageMedicarePayments" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="providerState" placeholder="Enter Value"/>
+									</div>
+									
 								</div>
 								<br/>
 								<button type="button" onClick={this.applySearch} className="btn btn-primary" value="Apply">Apply</button>

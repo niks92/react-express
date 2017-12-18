@@ -3,6 +3,10 @@
 This repository is an example fullstack web application using React on the
 front-end and Express.js as your back-end server. It uses passport bearer authentication to authenticate users, protect your server API, and render default login and registration screens in your React application.
 
+##### Architecture
+
+The frontend code can be found at: `/client` direction whereas the backend code can be found at `/server` directory.
+
 ## 1. Getting Started
 
 To run this example project on your local computer, you will need to have
@@ -48,7 +52,7 @@ $ npm test
 ```
 
 
-## 6. API Doucmentation
+## 6. API Documentation
 
 # Provider Resources
 

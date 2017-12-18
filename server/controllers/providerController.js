@@ -14,6 +14,10 @@ function getProviders(req, res, next){
 	
 	let searchQuery = {};
 	
+	if(state){
+		searchQuery['Provider State'] = state;
+	}
+
 	if(max_discharges || min_discharges){
 		searchQuery['Total Discharges'] = {};
 		if(max_discharges)
