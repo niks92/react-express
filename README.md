@@ -32,6 +32,13 @@ The NodeJS web application is deployed to heroku:
 
 The database is deployed to MongoLab. [mongodb://ds159926.mlab.com:59926/bain](mongodb://ds159926.mlab.com:59926/bain)
 
+The Providers data-set has been dumped to MongoLab database using this: 
+
+```bash
+$ mongoimport --host=dbhost -d dbname -u dbuser -p dbpassword -c providers --type csv --file fileLocation --headerline
+```
+
+
 ## 5. Test Cases
 
 Using Mocha, Chai you can run the test cases using the following command:
@@ -146,3 +153,6 @@ Returns the list of providers
 
 ```
 
+## 7. Assumptions
+
+The providers API call returns only 20 dataset for now(Limit set to 20). Will change later with pagination implemented.
