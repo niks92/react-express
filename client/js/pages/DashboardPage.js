@@ -77,7 +77,7 @@ export default class DashboardPage extends React.Component {
 											Max Discharges
 											<input className="form-check-input" type="checkbox" ref="isMaxDischarged" name="maxDischarges" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" ref="maxDischarges" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" ref="maxDischarges" placeholder="Enter Value"/>
 									</div>
 		
 									<div className="col-md-6 form-check">
@@ -85,35 +85,35 @@ export default class DashboardPage extends React.Component {
 											Min Discharges
 											<input type="checkbox" className="form-check-input" ref="isMinDischarged" name="minDischarges" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" ref="minDischarges" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" ref="minDischarges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxAverageCoveredCharges">
 											Max Avergage Covered Charges
 											<input type="checkbox" className="form-check-input" ref="isMaxAverageCoveredCharged" name="maxAverageCoveredCharges" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" ref="maxAverageCoveredCharges" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" ref="maxAverageCoveredCharges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Min Avergage Covered Charges
 											<input type="checkbox" className="form-check-input" ref="isMinAverageCoveredCharged" name="minAverageCoveredCharges" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" onChange={this.searchAsset} ref="minAverageCoveredCharges" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" onChange={this.searchAsset} ref="minAverageCoveredCharges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Max Avergage Medicare Payments
 											<input type="checkbox" className="form-check-input" ref="isMaxAverageMedicarePayment" name="maxAverageMedicarePayments" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" ref="maxAverageMedicarePayments" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" ref="maxAverageMedicarePayments" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 										Min Avergage Medicare Payments
 											<input type="checkbox" className="form-check-input" ref="isMinAverageMedicarePayment" name="minAverageMedicarePayments" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
+										<input type="number" className="form-control searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
 									</div>
 								</div>
 								<br/>
