@@ -64,7 +64,9 @@ export default class DashboardPage extends React.Component {
 							<div class="col-md-12">
 								<div className="row">
 									<div className="col-xs-12">
-										<h3>Providers Data</h3>
+										<h3>Providers Data
+										</h3>
+										<p>* Make sure you have checked the boxes and then passed the value in order to apply filters.</p>
 										<hr />
 									</div>
 								</div>
@@ -73,7 +75,7 @@ export default class DashboardPage extends React.Component {
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Max Discharges
-											<input class="form-check-input" type="checkbox" ref="isMaxDischarged" name="maxDischarges" value=""/>
+											<input className="form-check-input" type="checkbox" ref="isMaxDischarged" name="maxDischarges" value=""/>
 										</label>
 										<input type="text" className="form-control searchBox" ref="maxDischarges" placeholder="Enter Value"/>
 									</div>
@@ -81,35 +83,35 @@ export default class DashboardPage extends React.Component {
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Min Discharges
-											<input type="checkbox" class="form-check-input" ref="isMinDischarged" name="minDischarges" value=""/>
+											<input type="checkbox" className="form-check-input" ref="isMinDischarged" name="minDischarges" value=""/>
 										</label>
 										<input type="text" className="form-control searchBox" ref="minDischarges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxAverageCoveredCharges">
 											Max Avergage Covered Charges
-											<input type="checkbox" class="form-check-input" ref="isMaxAverageCoveredCharged" name="maxAverageCoveredCharges" value=""/>
+											<input type="checkbox" className="form-check-input" ref="isMaxAverageCoveredCharged" name="maxAverageCoveredCharges" value=""/>
 										</label>
 										<input type="text" className="form-control searchBox" ref="maxAverageCoveredCharges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Min Avergage Covered Charges
-											<input type="checkbox" class="form-check-input" ref="isMinAverageCoveredCharged" name="minAverageCoveredCharges" value=""/>
+											<input type="checkbox" className="form-check-input" ref="isMinAverageCoveredCharged" name="minAverageCoveredCharges" value=""/>
 										</label>
-										<input type="text" className="form-control searchBox" onChange={this.searchAsset} ref="countryName" placeholder="Enter Value"/>
+										<input type="text" className="form-control searchBox" onChange={this.searchAsset} ref="minAverageCoveredCharges" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 											Max Avergage Medicare Payments
-											<input type="checkbox" class="form-check-input" ref="isMaxAverageMedicarePayment" name="maxAverageMedicarePayments" value=""/>
+											<input type="checkbox" className="form-check-input" ref="isMaxAverageMedicarePayment" name="maxAverageMedicarePayments" value=""/>
 										</label>
 										<input type="text" className="form-control searchBox" ref="maxAverageMedicarePayments" placeholder="Enter Value"/>
 									</div>
 									<div className="col-md-6 form-check">
 										<label for="maxDischarges">
 										Min Avergage Medicare Payments
-											<input type="checkbox" class="form-check-input" ref="isMinAverageMedicarePayment" name="minAverageMedicarePayments" value=""/>
+											<input type="checkbox" className="form-check-input" ref="isMinAverageMedicarePayment" name="minAverageMedicarePayments" value=""/>
 										</label>
 										<input type="text" className="form-control searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
 									</div>
@@ -118,8 +120,11 @@ export default class DashboardPage extends React.Component {
 								<button type="button" onClick={this.applySearch} className="btn btn-primary" value="Apply">Apply</button>
 							</div>
 						</div>
+						<hr />
 						<div className="card-container">	
+						{this.state.providers.length == 0 ? <div className="text-center">No data to show. Please click <b>Apply</b> to have the results.</div> : null}
 							<div className="col-md-4">
+								
 								{
 									this.state.providers.map((provider) => {
 										return <div className="row">
