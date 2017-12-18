@@ -56,92 +56,95 @@ export default class DashboardPage extends React.Component {
 	}
 
 	render() {
-
-		let self = this;
-		return (
-			<div>
-				<div className="container">
-					<div className="row">
-						<div className="col-xs-12">
-							<h3>Providers Data</h3>
-							<hr />
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<label for="maxDischarges">
-								Max Discharges
-								<input type="checkbox" ref="isMaxDischarged" name="maxDischarges" value=""/>
-							</label>
-							<input type="text" className="searchBox" ref="maxDischarges" placeholder="Enter Value"/>
-						</div>
-						<div className="col-md-6">
-							<label for="maxDischarges">
-								Min Discharges
-								<input type="checkbox" ref="isMinDischarged" name="minDischarges" value=""/>
-							</label>
-							<input type="text" className="searchBox" ref="minDischarges" placeholder="Enter Value"/>
-						</div>
-						<div className="col-md-6">
-							<label for="maxAverageCoveredCharges">
-								Max Avergage Covered Charges
-								<input type="checkbox" ref="isMaxAverageCoveredCharged" name="maxAverageCoveredCharges" value=""/>
-							</label>
-							<input type="text" className="searchBox" ref="maxAverageCoveredCharges" placeholder="Enter Value"/>
-						</div>
-						<div className="col-md-6">
-							<label for="maxDischarges">
-								Min Avergage Covered Charges
-								<input type="checkbox" ref="isMinAverageCoveredCharged" name="minAverageCoveredCharges" value=""/>
-							</label>
-							<input type="text" className="searchBox" onChange={this.searchAsset} ref="countryName" placeholder="Enter Value"/>
-						</div>
-						<div className="col-md-6">
-							<label for="maxDischarges">
-								Max Avergage Medicare Payments
-								<input type="checkbox" ref="isMaxAverageMedicarePayment" name="maxAverageMedicarePayments" value=""/>
-							</label>
-							<input type="text" className="searchBox" ref="maxAverageMedicarePayments" placeholder="Enter Value"/>
-						</div>
-						<div className="col-md-6">
-							<label for="maxDischarges">
-							Min Avergage Medicare Payments
-								<input type="checkbox" ref="isMinAverageMedicarePayment" name="minAverageMedicarePayments" value=""/>
-							</label>
-							<input type="text" className="searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
-						</div>
-					</div>
-					<br/>
-					<button type="button" onClick={this.applySearch} className="btn btn-primary" value="Apply">Apply</button>
-				</div>
-				
-					{
-						this.state.providers.map((provider) => {
-							return	<div className="container"> 
-								<div class="card">
-									<div class="card-block">
-										<h4 class="card-title">Provider Name: {provider['Provider Name']}</h4>
-										<h6 class="card-title">Provider Id: {provider['Provider Id']}</h6>
-										<h6 class="card-title">DRG Definition: {provider['DRG Definition']}</h6>
-										<h6 class="card-title">Provider Name: {provider['Provider Id']}</h6>
-										<h6 class="card-title">Provider Street Address: {provider['Provider Street Address']}</h6>
-										<h6 class="card-title">Provider City: {provider['Provider City']}</h6>
-										<h6 class="card-title">Provider State: {provider['Provider State']}</h6>
-										<h6 class="card-title">Hospital Referral Region Description: {provider['Hospital Referral Region Description']}</h6>
-										<h6 class="card-title">Total Discharges: {provider['Total Discharges']}</h6>
-										<h6 class="card-title">Average Covered Charges: {provider['Average Covered Charges']}</h6>
-										<h6 class="card-title">Average Total Payments: {provider['Average Total Payments']}</h6>
-										<h6 class="card-title">Average Medicare Payments: {provider['Average Medicare Payments']}</h6>
+		
+				let self = this;
+				return (
+					<div className="container">
+						<div className="row">
+							<div class="col-md-12">
+								<div className="row">
+									<div className="col-xs-12">
+										<h3>Providers Data</h3>
+										<hr />
 									</div>
 								</div>
+								<div className="row">
+		
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+											Max Discharges
+											<input class="form-check-input" type="checkbox" ref="isMaxDischarged" name="maxDischarges" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="maxDischarges" placeholder="Enter Value"/>
+									</div>
+		
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+											Min Discharges
+											<input type="checkbox" class="form-check-input" ref="isMinDischarged" name="minDischarges" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="minDischarges" placeholder="Enter Value"/>
+									</div>
+									<div className="col-md-6 form-check">
+										<label for="maxAverageCoveredCharges">
+											Max Avergage Covered Charges
+											<input type="checkbox" class="form-check-input" ref="isMaxAverageCoveredCharged" name="maxAverageCoveredCharges" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="maxAverageCoveredCharges" placeholder="Enter Value"/>
+									</div>
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+											Min Avergage Covered Charges
+											<input type="checkbox" class="form-check-input" ref="isMinAverageCoveredCharged" name="minAverageCoveredCharges" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" onChange={this.searchAsset} ref="countryName" placeholder="Enter Value"/>
+									</div>
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+											Max Avergage Medicare Payments
+											<input type="checkbox" class="form-check-input" ref="isMaxAverageMedicarePayment" name="maxAverageMedicarePayments" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="maxAverageMedicarePayments" placeholder="Enter Value"/>
+									</div>
+									<div className="col-md-6 form-check">
+										<label for="maxDischarges">
+										Min Avergage Medicare Payments
+											<input type="checkbox" class="form-check-input" ref="isMinAverageMedicarePayment" name="minAverageMedicarePayments" value=""/>
+										</label>
+										<input type="text" className="form-control searchBox" ref="minAverageMedicarePayments" placeholder="Enter Value"/>
+									</div>
 								</div>
+								<br/>
+								<button type="button" onClick={this.applySearch} className="btn btn-primary" value="Apply">Apply</button>
+							</div>
+						</div>
+						<div className="card-container">	
+							<div className="col-md-4">
+								{
+									this.state.providers.map((provider) => {
+										return <div className="row">
+										
+												<div className="card-block">
+												<h4 className="card-title">Provider Name: {provider['Provider Name']}</h4>
+												<h6 className="card-title">Provider Id: {provider['Provider Id']}</h6>
+												<h6 className="card-title">DRG Definition: {provider['DRG Definition']}</h6>
+												<h6 className="card-title">Provider Name: {provider['Provider Id']}</h6>
+												<h6 className="card-title">Provider Street Address: {provider['Provider Street Address']}</h6>
+												<h6 className="card-title">Provider City: {provider['Provider City']}</h6>
+												<h6 className="card-title">Provider State: {provider['Provider State']}</h6>
+												<h6 className="card-title">Hospital Referral Region Description: {provider['Hospital Referral Region Description']}</h6>
+												<h6 className="card-title">Total Discharges: {provider['Total Discharges']}</h6>
+												<h6 className="card-title">Average Covered Charges: {provider['Average Covered Charges']}</h6>
+												<h6 className="card-title">Average Total Payments: {provider['Average Total Payments']}</h6>
+												<h6 className="card-title">Average Medicare Payments: {provider['Average Medicare Payments']}</h6>
+											</div>
+										</div>
 
-						})
-					}
-					
-				
-
-		</div>
-		);
-	}
+									})
+							}
+							</div>
+						</div>
+					</div>
+				);
+		}
 }
