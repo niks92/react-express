@@ -69,7 +69,7 @@ export default class DashboardPage extends React.Component {
 				return (
 					<div className="container">
 						<div className="row">
-							<div class="col-md-12">
+							<div className="col-md-12">
 								<div className="row">
 									<div className="col-xs-12">
 										<h3>Providers Data
@@ -144,7 +144,7 @@ export default class DashboardPage extends React.Component {
 						{	this.state.providers.length == 0 ? 
 								<div className="text-center">No data to show. Please click <b>Apply</b> to have the results.</div> : null
 						}
-							<div className="col-md-4">
+							<div className="row">
 								
 								{
 									this.state.providers.map((provider) => {

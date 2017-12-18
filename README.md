@@ -5,7 +5,7 @@ front-end and Express.js as your back-end server. It uses passport bearer authen
 
 ##### Architecture
 
-The frontend code can be found at: `/client` direction whereas the backend code can be found at `/server` directory.
+The frontend code can be found at: `/client` directory whereas the backend code can be found at `/server` directory.
 
 ## 1. Getting Started
 
