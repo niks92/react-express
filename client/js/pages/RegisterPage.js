@@ -77,7 +77,7 @@ export default class RegisterPage extends React.Component {
                             </div>
                         </div>
                         <div className="form-group text-center">
-                          <a href="/login"><i className="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a>
+                          <a href="/"><i className="fa fa-angle-double-left" aria-hidden="true"></i> Back to Login</a>
                       </div>
                       { this.state.errorMessage == "" ? null :
                         <div>

@@ -15,7 +15,7 @@ function getProviders(req, res, next){
 	let searchQuery = {};
 	
 	if(state){
-		searchQuery['Provider State'] = state;
+		searchQuery['Provider State'] = state.toUpperCase();
 	}
 
 	if(max_discharges || min_discharges){
